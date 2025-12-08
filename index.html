@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling while wrapped */
+            background-color: #121212; /* Dark background behind the paper */
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* --- THE WRAPPING PAPER (Overlay) --- */
+        #wrapping-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 100;
+            display: flex;
+            cursor: pointer;
+        }
+
+        /* Left and Right Panels of the paper */
+        .panel {
+            width: 50%;
+            height: 100%;
+            background-color: #d32f2f; /* Red */
+            /* CSS Pattern for wrapping paper texture */
+            background-image: repeating-linear-gradient(
+                45deg,
+                #c62828,
+                #c62828 20px,
+                #d32f2f 20px,
+                #d32f2f 40px
+            );
+            position: relative;
+            transition: transform 1.5s cubic-bezier(0.7, 0, 0.3, 1);
+            border-right: 2px solid #a31515; /* Subtle seam in middle */
+        }
+
+        /* The Gold Ribbon Vertical */
+        .ribbon-vertical {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px; /* Half ribbon width */
+            height: 100%;
+            background: linear-gradient(to right, #fbc02d, #f9a825);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+        }
+
+        /* Since we have two panels, the right panel needs the ribbon on the left side */
+        .panel-right .ribbon-vertical {
+            left: 0;
+            right: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        }
+
+        /* The Gold Ribbon Horizontal */
+        .ribbon-horizontal {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, #fbc02d, #f9a825);
+            transform: translateY(-50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Center Bow/Tag */
+        .bow-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 101;
+            text-align: center;
+            transition: all 0.5s ease;
+            pointer-events: none; /* Let clicks pass through to the layer */
+        }
+
+        .bow-knot {
+            font-size: 8rem;
+            text-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            display: block;
+        }
+
+        .hint-text {
+            color: white;
+            font-family: sans-serif;
+            font-size: 1rem;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: -20px;
+        }
+
+        /* --- ANIMATION CLASSES --- */
+        /* When open, move left panel left, right panel right */
+        .unwrap .panel-left {
+            transform: translateX(-100%);
+        }
+        .unwrap .panel-right {
+            transform: translateX(100%);
+        }
+        .unwrap .bow-center {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        /* --- MAIN CONTENT (Hidden Behind) --- */
+        .main-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Festive background behind the paper */
+            background: radial-gradient(circle, #1a4c28 0%, #0d2b16 100%);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 1s ease 0.5s; /* Delay appearance until unwrapped */
+        }
+
+        .main-content.show {
+            opacity: 1;
+        }
+
+        h1 {
+            font-size: 7rem;
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 0 0 20px #ffeb3b;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ffeb3b; }
+            to { text-shadow: 0 0 30px #ffeb3b, 0 0 10px #fff; }
+        }
+
+        .gift-btn {
+            margin-top: 50px;
+            padding: 20px 60px;
+            font-family: sans-serif;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #d32f2f, #c62828);
+            border: 2px solid #fbc02d;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .gift-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            background: #b71c1c;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrapping-layer">
+        <div class="panel panel-left">
+            <div class="ribbon-vertical"></div>
+            <div class="ribbon-horizontal"></div>
+        </div>
+        <div class="panel panel-right">
+            <div class="ribbon-vertical"></div>
+            <div class="ribbon-horizontal"></div>
+        </div>
+        
+        <div class="bow-center">
+            <span class="bow-knot">🎀</span>
+            <div class="hint-text">Double Click to Open</div>
+        </div>
+    </div>
+
+    <div class="main-content" id="main-content">
+        <h1>Merry Christmas</h1>
+        <button class="gift-btn" onclick="openGiftLink()">Get My Gift</button>
+    </div>
+
+    <script>
+        const wrapper = document.getElementById('wrapping-layer');
+        const mainContent = document.getElementById('main-content');
+
+        // Listen for Double Click
+        wrapper.addEventListener('dblclick', () => {
+            // 1. Trigger the slide animation
+            wrapper.classList.add('unwrap');
+
+            // 2. Reveal the content inside
+            mainContent.classList.add('show');
+
+            // 3. Remove the wrapper from DOM after animation so buttons remain clickable
+            setTimeout(() => {
+                wrapper.style.display = 'none';
+            }, 1500); // Matches the CSS transition time
+        });
+
+        function openGiftLink() {
+            // Change this to your actual gift link
+            alert("This is where the link goes!");
+        }
+    </script>
+
+</body>
+</html>

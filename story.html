@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Celebration 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <script type="importmap">
+    {
+        "imports": {
+            "three": "https://esm.sh/three@0.160.0",
+            "three/addons/": "https://esm.sh/three@0.160.0/examples/jsm/",
+            "cannon-es": "https://esm.sh/cannon-es@0.20.0"
+        }
+    }
+    </script>
+
+    <style>
+        /* === GLOBAL RESET === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; background-color: #f0f0f0; overflow-x: hidden; }
+        
+        /* Section Styling */
+        section {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        /* ========================================= */
+        /* SECTION 1 STYLES (Welcome & Vines)        */
+        /* ========================================= */
+        #section-1 {
+            background: linear-gradient(135deg, #d31027, #ea384d);
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Vines */
+        .hanging-decorations { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; justify-content: space-evenly; z-index: 1; }
+        .vine-line { width: 2px; background-color: #1a4d1a; position: relative; transform-origin: top center; animation: swayVine 3s ease-in-out infinite alternate; }
+        .vine-flower { position: absolute; bottom: -20px; left: -15px; font-size: 2.5rem; }
+        .vine-leaf { position: absolute; font-size: 1.5rem; }
+        .vine-1 { height: 150px; animation-delay: 0s; }
+        .vine-2 { height: 250px; animation-delay: 1s; }
+        .vine-3 { height: 180px; animation-delay: 0.5s; }
+        .vine-4 { height: 300px; animation-delay: 1.5s; }
+        .vine-5 { height: 120px; animation-delay: 0.2s; }
+        @keyframes swayVine { 0% { transform: rotate(-2deg); } 100% { transform: rotate(2deg); } }
+
+        /* Text & Gifts */
+        .welcome-container { z-index: 2; animation: float 3s ease-in-out infinite; }
+        .main-text { font-family: 'Great Vibes', cursive; font-size: 8rem; margin: 0; line-height: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        .sub-text { font-family: 'Great Vibes', cursive; font-size: 4rem; color: #FFD700; display: block; margin-top: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.4); }
+        .gift-container { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 50px; pointer-events: none; }
+        .gift { font-size: 5rem; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3)); animation: wiggle 2s ease-in-out infinite; }
+        .gift:nth-child(1) { animation-delay: 0s; transform: rotate(-10deg); }
+        .gift:nth-child(2) { animation-delay: 0.5s; font-size: 6rem; z-index: 1; }
+        .gift:nth-child(3) { animation-delay: 1s; transform: rotate(10deg); }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        @keyframes wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+
+
+        /* ========================================= */
+        /* SECTION 2 STYLES (The Snow Globe)         */
+        /* ========================================= */
+        #section-2 {
+            background-color: #125c55;
+            font-size: 0.8vmin;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #globe { position: relative; width: 60em; height: 70em; cursor: pointer; transform-origin: 50% 80%; }
+        .stand { width: 40em; height: 17em; background-color: #c38b5e; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2em; z-index: 1; }
+        .stand:before, .stand:after { content: ""; position: absolute; height: 100%; width: 5em; border-radius: 2em; background-color: inherit; z-index: -1; }
+        .stand:before { left: -1em; transform: rotate(8deg); }
+        .stand:after { right: -1em; transform: rotate(-8deg); }
+        .stand .foot { position: absolute; bottom: 0; background-color: inherit; width: 45em; height: 5em; left: 50%; transform: translateX(-50%); border-radius: 1em; }
+        .stand .foot:before, .stand .foot:after { content: ""; position: absolute; background-color: #dcb17f; }
+        .stand .foot:before { height: 1.5em; width: 40em; left: 50%; transform: translateX(-50%); top: -12em; border-radius: 2em 2em 0 0; }
+        .stand .foot:after { top: 0; height: 2em; width: 100%; border-radius: 1em 1em 0 0; }
+        .ball { aspect-ratio: 1; height: 60em; position: absolute; left: 50%; transform: translateX(-50%); }
+        .ball:before { content: ""; background-color: #ffffff44; outline: 0.3em solid #ffffffaa; height: 100%; width: 100%; border-radius: 50%; position: absolute; }
+        #inner { aspect-ratio: 1; position: absolute; border-radius: 50%; height: 58em; background-color: #ffffff44; left: 1em; top: 1em; overflow: hidden; }
+        #inner:before { content: ""; position: absolute; border-radius: 50%; aspect-ratio: 1; top: 0em; left: 7em; width: 56em; box-shadow: inset 7em 13em 0 -9em #ffffff77; clip-path: circle(17em at 0 24%); }
+        #inner:after { content: ""; position: absolute; border-radius: 50%; aspect-ratio: 1; top: 1em; left: 1em; width: 54em; box-shadow: inset 6em 13em 0 -9em #ffffff44; }
+        #inner .snow-ground { width: 100%; height: 21em; background-color: white; position: absolute; bottom: 0; clip-path: polygon(0 0, 2em 2em, 7em 6em, 12em 7em, 14em 8em, 44em 8em, 49em 2em, 52em 2em, 55em 0em, 100% 1em, 100% 100%, 0 100%); }
+        #inner .tree { transform-origin: 50% 25em; position: absolute; left: 17em; top: 20em; width: 0; height: 0; border-left: 12em solid transparent; border-right: 12em solid transparent; border-bottom: 19em solid #009788; }
+        #inner .tree:before { content: ""; position: absolute; left: -9em; top: -4em; border-left: 9em solid transparent; border-right: 9em solid transparent; border-bottom: 14em solid #27a59a; }
+        #inner .tree:after { content: ""; position: absolute; left: -7em; top: -8em; border-left: 7em solid transparent; border-right: 7em solid transparent; border-bottom: 11em solid #4db8ae; }
+        #inner .tree .trunk { width: 4em; height: 6em; background-color: #a6653f; position: absolute; bottom: -25em; left: 50%; transform: translateX(-50%); }
+        #inner .tree:nth-child(1) { transform: scale(0.7) translateX(-13em); filter: brightness(0.85); }
+        #inner .tree:nth-child(2) { transform: scale(0.5) translateX(20em); filter: brightness(0.85); }
+        .flake { position: absolute; z-index: 1; background-color: white; border-radius: 50%; }
+
+        /* ========================================= */
+        /* SECTION 3 STYLES (Coin Toss)              */
+        /* ========================================= */
+        #section-3 {
+            background-color: #F6F3EB;
+            position: relative;
+        }
+        #game-container { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1; }
+        .coin-ui-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; z-index: 10; }
+        .ui-top { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
+        .section-title h2 { font-family: 'Great Vibes', cursive; font-size: 5rem; color: #725349; margin: 0; line-height: 1; }
+        .section-title span { font-family: "Bungee", sans-serif; font-size: 1.2rem; color: #72534999; margin-top: 5px; display: block; }
+        .top-bar { background: #725349; padding: 10px 20px; border-radius: 50px; pointer-events: auto; display: flex; gap: 15px; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .bar-text { color: #fff; font-family: "Bungee", sans-serif; font-size: 16px; letter-spacing: 1px; margin: 0; }
+        .coin-select { padding: 5px 15px; font-family: "Bungee", sans-serif; border-radius: 20px; border: none; background: #513228; color: white; font-size: 16px; cursor: pointer; outline: none; }
+        .ui-bottom { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 20px; }
+        #result-board { color: #725349; font-family: "Bungee", sans-serif; font-size: 50px; font-weight: 900; opacity: 0; transition: opacity 0.3s; text-align: center; margin-bottom: 20px; }
+        #result-board.show { opacity: 1; }
+        .coin-sub-text { font-size: 20px; color: #72534999; display: block; margin-top: 5px; }
+        .hint { font-family: "Bungee", sans-serif; color: #72534999; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
+
+        /* ========================================= */
+        /* SECTION 4 STYLES (Motivation Fries)       */
+        /* ========================================= */
+        #section-4 {
+            background: radial-gradient(circle at center, #1a472a 0%, #092010 100%);
+            font-family: 'Fredoka One', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Snow for Section 4 --- */
+        .sec4-snowflake {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.5em;
+            position: absolute; 
+            top: -10%;
+            z-index: 1;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) translateX(0); opacity: 1; }
+            100% { transform: translateY(110vh) translateX(20px); opacity: 0.3; }
+        }
+
+        .fries-wrapper {
+            position: relative;
+            width: 380px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 10;
+        }
+
+        /* Back Box */
+        .box-back { position: absolute; bottom: 0; width: 260px; height: 250px; background-color: #8b0000; border-radius: 20px 20px 40px 40px; z-index: 2; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+
+        /* Front Box (Santa) */
+        .box-front { position: absolute; bottom: -5px; width: 280px; height: 200px; background: linear-gradient(135deg, #d41e3a, #b3001b); border-radius: 0 0 40px 40px; z-index: 5; display: flex; flex-direction: column; align-items: center; clip-path: polygon(0 20%, 50% 0, 100% 20%, 100% 100%, 0 100%); }
+        .belt { width: 100%; height: 35px; background-color: #222; margin-top: 60px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 5px rgba(0,0,0,0.3); }
+        .buckle { width: 45px; height: 45px; border: 6px solid #ffd700; border-radius: 8px; background: transparent; box-shadow: 0 0 10px #ffd700; }
+        .logo-text { margin-top: 25px; color: #fff; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+        /* --- Fries Logic --- */
+        .fries-container { position: absolute; bottom: 50px;  display: flex; justify-content: center; align-items: flex-end; gap: 10px; z-index: 3; width: 100%; }
+        .fry { width: 38px; background: linear-gradient(90deg, #ffdf33 0%, #ffc400 50%, #e1b100 100%); border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; justify-content: center; padding-top: 10px; position: relative; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
+        .fry:hover { transform: translateY(-15px) scale(1.05); }
+
+        /* --- LOCK STATE --- */
+        .fries-container.locked .fry { cursor: not-allowed; opacity: 0.5; transform: translateY(0); }
+        .fries-container.locked .fry.pulled { opacity: 1; transform: translateY(-200px) scale(1.1); z-index: 6; box-shadow: 0 0 20px #ffd700; }
+
+        .fry-text { writing-mode: vertical-rl; text-orientation: mixed; font-size: 13px; color: #b22222; opacity: 0; transition: opacity 0.3s ease 0.3s; text-shadow: 0 1px 0 rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 5px; }
+        .fry.pulled .fry-text { opacity: 1; }
+
+        /* Heights */
+        .fry:nth-child(1) { height: 260px; }
+        .fry:nth-child(2) { height: 280px; }
+        .fry:nth-child(3) { height: 250px; }
+        .fry:nth-child(4) { height: 270px; }
+        .fry:nth-child(5) { height: 255px; }
+        .fry:nth-child(6) { height: 230px; }
+
+        .bubble { position: absolute; top: 0; background: white; padding: 15px 30px; border-radius: 50px; color: #d41e3a; font-size: 18px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); animation: bubbleFloat 3s ease-in-out infinite; transition: transform 0.3s; }
+        .bubble::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-width: 10px 10px 0; border-style: solid; border-color: white transparent transparent transparent; }
+        @keyframes bubbleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        /* ========================================= */
+        /* SECTION 5 STYLES (Gift Wrapped Game)      */
+        /* ========================================= */
+        #section-5 {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            user-select: none;
+            position: relative;
+        }
+
+        /* Scoping UI Bar to Section 5 */
+        #section-5 #ui-bar {
+            width: 100%;
+            height: 120px;
+            background-color: #34495E;
+            border-bottom: 4px solid #1abc9c;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        #section-5 .stat-box { text-align: center; }
+        #section-5 .stat-label { font-size: 0.8rem; color: #bdc3c7; margin-bottom: 5px; }
+        #section-5 .stat-value { font-size: 1.5rem; color: #f1c40f; }
+
+        #section-5 #target-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px dashed #7f8c8d;
+            min-width: 100px;
+        }
+
+        #section-5 #target-display { width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; }
+
+        #section-5 #game-area {
+            position: relative;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        #section-5 .item {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.1s;
+            filter: drop-shadow(0px 4px 0px rgba(0,0,0,0.3));
+        }
+
+        #section-5 .item:hover { transform: scale(1.05); z-index: 1000 !important; }
+        #section-5 .item:active { transform: scale(0.95); }
+        #section-5 svg { width: 100%; height: 100%; overflow: visible; }
+
+        /* Screens */
+        #section-5 .screen-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            text-align: center;
+        }
+
+        #section-5 h1 { color: #e74c3c; text-shadow: 4px 4px 0 #000; margin-bottom: 20px; font-size: 2.5rem; line-height: 1.5; }
+        #section-5 p { line-height: 1.6; max-width: 600px; margin-bottom: 30px; }
+
+        #section-5 button {
+            background: #27ae60;
+            border: none;
+            border-bottom: 6px solid #219150;
+            color: white;
+            padding: 20px 40px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.1s;
+        }
+
+        #section-5 button:active { transform: translateY(4px); border-bottom: 2px solid #219150; }
+
+        /* Feedback Effects */
+        .gift-feedback {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: bold;
+            pointer-events: none;
+            animation: floatUp 0.8s ease-out forwards;
+            z-index: 2000;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        @keyframes floatUp { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-50px); } }
+
+    </style>
+</head>
+<body>
+
+    <section id="section-1">
+        <div class="hanging-decorations">
+            <div class="vine-line vine-1"><div class="vine-leaf" style="top:20%;left:-10px;">🍃</div><div class="vine-leaf" style="top:60%;right:-10px;">🌿</div><div class="vine-flower">🌺</div></div>
+            <div class="vine-line vine-2"><div class="vine-leaf" style="top:30%;left:-10px;">🍃</div><div class="vine-leaf" style="top:70%;right:-10px;">🌿</div><div class="vine-flower">🌸</div></div>
+            <div class="vine-line vine-3"><div class="vine-leaf" style="top:40%;left:-10px;">🌿</div><div class="vine-flower">🌺</div></div>
+            <div class="vine-line vine-4"><div class="vine-leaf" style="top:20%;right:-10px;">🍃</div><div class="vine-leaf" style="top:50%;left:-10px;">🌿</div><div class="vine-leaf" style="top:80%;right:-10px;">🍃</div><div class="vine-flower">🌸</div></div>
+            <div class="vine-line vine-5"><div class="vine-leaf" style="top:50%;left:-10px;">🌿</div><div class="vine-flower">🌺</div></div>
+        </div>
+        <div class="welcome-container">
+            <h1 class="main-text">Welcome</h1>
+            <span class="sub-text">to Christmas Story</span>
+        </div>
+        <div class="gift-container">
+            <div class="gift">🎁</div><div class="gift">🎁</div><div class="gift">🎁</div>
+        </div>
+    </section>
+
+    <section id="section-2">
+        <div id="globe">
+            <div class="ball">
+                <div id="inner">
+                    <div class="tree"><div class="trunk"></div></div>
+                    <div class="tree"><div class="trunk"></div></div>
+                    <div class="tree"><div class="trunk"></div></div>
+                    <div class="snow-ground"></div>
+                </div>
+            </div>
+            <div class="stand">
+                <div class="foot"></div>
+            </div>
+        </div>
+        <div style="position: absolute; bottom: 10%; color: #dcb17f; font-family: sans-serif; opacity: 0.8;">Click the globe to shake!</div>
+    </section>
+
+    <section id="section-3">
+        <div id="game-container"></div>
+        <div class="coin-ui-container">
+            <div class="ui-top">
+                <div class="section-title" style="text-align: center;">
+                    <h2>Decision Maker</h2>
+                    <span>This will help you take decisions</span>
+                </div>
+                <div class="top-bar">
+                    <p class="bar-text">COIN COUNT</p>
+                    <label class="select">
+                        <select id="coinCount" class="coin-select">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="ui-bottom">
+                <div id="result-board">
+                    <span id="main-result">YES</span>
+                    <span class="coin-sub-text" id="detail-result"></span>
+                </div>
+                <div class="hint">Click & Drag to Toss</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-4">
+        <div class="sec4-snowflake" style="left: 10%; animation-duration: 8s;">❄</div>
+        <div class="sec4-snowflake" style="left: 30%; animation-duration: 12s; font-size: 1em;">❅</div>
+        <div class="sec4-snowflake" style="left: 50%; animation-duration: 6s;">❆</div>
+        <div class="sec4-snowflake" style="left: 70%; animation-duration: 9s; font-size: 0.8em;">❄</div>
+        <div class="sec4-snowflake" style="left: 90%; animation-duration: 11s;">❅</div>
+
+        <div class="fries-wrapper">
+            <div class="bubble" id="instruction">
+                💪 Pick Your 2025 Mindset
+            </div>
+            <div class="box-back"></div>
+            <div class="fries-container" id="friesBox">
+                <div class="fry" onclick="pickFry(this)"><span class="fry-text">Believe in Yourself</span></div>
+                <div class="fry" onclick="pickFry(this)"><span class="fry-text">Focus on Your Goal</span></div>
+                <div class="fry" onclick="pickFry(this)"><span class="fry-text">Don't Give Up Bro</span></div>
+                <div class="fry" onclick="pickFry(this)"><span class="fry-text">Make It Happen</span></div>
+                <div class="fry" onclick="pickFry(this)"><span class="fry-text">Trust The Process</span></div>
+                <div class="fry" onclick="pickFry(this)"><span class="fry-text">Your Time Is Now</span></div>
+            </div>
+            <div class="box-front">
+                <div class="belt">
+                    <div class="buckle"></div>
+                </div>
+                <div class="logo-text">Lucky Fries</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-5">
+        <div id="ui-bar">
+            <div class="stat-box">
+                <div class="stat-label">TIME</div>
+                <div class="stat-value" id="gift-timer">20</div>
+            </div>
+            <div id="target-container">
+                <div class="stat-label" style="color: #ecf0f1;">FIND THIS:</div>
+                <div id="target-display"></div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">SCORE</div>
+                <div class="stat-value" id="gift-score">0</div>
+            </div>
+        </div>
+
+        <div id="game-area"></div>
+
+        <div id="gift-start-screen" class="screen-overlay">
+            <h1>GIFT<br>WRAPPED</h1>
+            <p>A target gift is shown at the top.<br>Find the <b>wrapped</b> version hidden in the pile that matches its shape!</p>
+            <button id="gift-start-btn">PLAY</button>
+        </div>
+
+        <div id="gift-game-over-screen" class="screen-overlay" style="display: none;">
+            <h1>TIME'S UP!</h1>
+            <p>You managed to unwrap <span id="final-gift-score" style="color:#f1c40f">0</span> gifts.</p>
+            <button id="gift-restart-btn">TRY AGAIN</button>
+        </div>
+    </section>
+
+
+    <script>
+        // --- SNOW GLOBE SCRIPT ---
+        const globe = document.getElementById("globe");
+        const inner = document.getElementById("inner");
+        const ANIMATION_KEYFRAMES = [ { transform: "rotate(0)" }, { transform: "rotate(30deg)" }, { transform: "rotate(-30deg)" }, { transform: "rotate(0)" } ];
+        const ANIMATION_OPTIONS = { duration: 400, iterations: 8, direction: "alternate" };
+        const NUMBER_FLAKES = 100;
+        const FLAKE_FADE_IN_DURATION = 500;
+        const SHAKE_DURATION = ANIMATION_OPTIONS.duration * ANIMATION_OPTIONS.iterations;
+
+        globe.addEventListener("click", () => {
+            globe.animate(ANIMATION_KEYFRAMES, ANIMATION_OPTIONS);
+            let count = 0;
+            const interval = setInterval(() => {
+                spawnFlake();
+                count++;
+                if (count >= NUMBER_FLAKES) clearInterval(interval);
+            }, SHAKE_DURATION / NUMBER_FLAKES - FLAKE_FADE_IN_DURATION / NUMBER_FLAKES);
+        });
+
+        function random(min, max) { return Math.random() * (max - min) + min; }
+
+        function spawnFlake() {
+            const flake = document.createElement("div");
+            flake.classList.add("flake");
+            const fallDuration = random(10, 30);
+            const size = random(0.4, 1.2);
+            flake.style.top = random(-10, 55) + "%";
+            flake.style.left = random(0, 100) + "%";
+            flake.style.width = size + "em";
+            flake.style.height = size + "em";
+            flake.animate([ { transform: 'translateY(0)' }, { transform: 'translateY(55em)' } ], { duration: fallDuration * 1000, easing: 'linear', fill: 'forwards' });
+            inner.appendChild(flake);
+            flake.animate([{ opacity: 0 }, { opacity: 1 }], { duration: FLAKE_FADE_IN_DURATION, fill: "forwards" });
+            setTimeout(() => flake.remove(), fallDuration * 1000);
+        }
+
+        // --- MOTIVATION FRIES SCRIPT ---
+        let friesGameFinished = false;
+
+        function pickFry(element) {
+            if (friesGameFinished) {
+                return; 
+            }
+            friesGameFinished = true;
+            element.classList.add('pulled');
+            document.getElementById('friesBox').classList.add('locked');
+            document.getElementById('instruction').innerHTML = "🔥 This is your sign! 🔥";
+        }
+        
+        // --- GIFT WRAPPED GAME SCRIPT (Scoped to avoid conflicts) ---
+        {
+            const ITEMS = [
+                { id: 'bottle', color: '#3498db', path: 'M30,10 L30,30 L15,40 L15,90 L45,90 L45,40 L30,30 L30,10 Z' },
+                { id: 'star', color: '#f1c40f', path: 'M30,5 L38,25 L60,25 L42,38 L48,60 L30,48 L12,60 L18,38 L0,25 L22,25 Z' },
+                { id: 'heart', color: '#e74c3c', path: 'M30,20 C15,5 0,15 0,35 C0,55 30,80 30,80 C30,80 60,55 60,35 C60,15 45,5 30,20 Z' },
+                { id: 'moon', color: '#9b59b6', path: 'M30,10 A25,25 0 1,0 30,60 A20,20 0 1,1 30,10 Z' },
+                { id: 'tree', color: '#2ecc71', path: 'M30,5 L50,35 L40,35 L55,60 L35,60 L35,75 L25,75 L25,60 L5,60 L20,35 L10,35 Z' },
+                { id: 'sock', color: '#e67e22', path: 'M20,10 L40,10 L40,50 C40,65 55,65 55,75 C55,85 40,85 30,75 C25,70 20,70 20,50 Z' },
+                { id: 'wrench', color: '#95a5a6', path: 'M20,10 L25,10 L25,50 L35,50 L35,60 L25,60 L25,75 L15,75 L15,60 L5,60 L5,50 L15,50 L15,10 Z' },
+                { id: 'candy', color: '#e74c3c', path: 'M25,10 C40,10 40,25 25,25 L25,80 L15,80 L15,25 C0,25 0,10 15,10 Z' },
+                { id: 'guitar', color: '#d35400', path: 'M25,5 C35,5 35,20 25,20 L25,45 C40,45 45,75 25,85 C5,75 10,45 25,45 L25,20 Z' },
+                { id: 'box', color: '#16a085', path: 'M10,20 L50,20 L50,60 L10,60 Z' }
+            ];
+            const WRAPS = [
+                'repeating-linear-gradient(45deg, #c0392b, #c0392b 10px, #e74c3c 10px, #e74c3c 20px)',
+                'repeating-radial-gradient(circle, #2980b9, #2980b9 5px, #3498db 5px, #3498db 15px)',
+                'repeating-linear-gradient(90deg, #27ae60, #27ae60 10px, #2ecc71 10px, #2ecc71 20px)',
+                'conic-gradient(#8e44ad 0deg 90deg, #9b59b6 90deg 180deg, #8e44ad 180deg 270deg, #9b59b6 270deg 360deg)',
+                'repeating-linear-gradient(135deg, #d35400, #d35400 5px, #f39c12 5px, #f39c12 25px)'
+            ];
+
+            let giftScore = 0;
+            let giftTimeLeft = 20;
+            let giftTimerInterval = null;
+            let giftCurrentTargetId = null;
+            let giftRound = 1;
+            let giftIsGameOver = false;
+
+            const gameArea = document.getElementById('game-area');
+            const targetDisplay = document.getElementById('target-display');
+            const timerEl = document.getElementById('gift-timer');
+            const scoreEl = document.getElementById('gift-score');
+            const startScreen = document.getElementById('gift-start-screen');
+            const gameOverScreen = document.getElementById('gift-game-over-screen');
+            const finalScoreEl = document.getElementById('final-gift-score');
+
+            document.getElementById('gift-start-btn').addEventListener('click', startGiftGame);
+            document.getElementById('gift-restart-btn').addEventListener('click', startGiftGame);
+
+            function startGiftGame() {
+                giftScore = 0;
+                giftTimeLeft = 20;
+                giftRound = 1;
+                giftIsGameOver = false;
+                scoreEl.innerText = giftScore;
+                timerEl.innerText = giftTimeLeft;
+                
+                startScreen.style.display = 'none';
+                gameOverScreen.style.display = 'none';
+                
+                startGiftRound();
+                
+                clearInterval(giftTimerInterval);
+                giftTimerInterval = setInterval(updateGiftTimer, 1000);
+            }
+
+            function updateGiftTimer() {
+                giftTimeLeft--;
+                timerEl.innerText = giftTimeLeft;
+                if (giftTimeLeft <= 0) {
+                    endGiftGame();
+                }
+            }
+
+            function endGiftGame() {
+                clearInterval(giftTimerInterval);
+                giftIsGameOver = true;
+                finalScoreEl.innerText = giftScore;
+                gameOverScreen.style.display = 'flex';
+            }
+
+            function getRandomItem() {
+                return ITEMS[Math.floor(Math.random() * ITEMS.length)];
+            }
+
+            function createSVG(item, isWrapped) {
+                const svgNS = "http://www.w3.org/2000/svg";
+                const svg = document.createElementNS(svgNS, "svg");
+                svg.setAttribute("viewBox", "0 0 60 100");
+                const path = document.createElementNS(svgNS, "path");
+                path.setAttribute("d", item.path);
+                if (isWrapped) {
+                    path.setAttribute("fill", "currentColor"); 
+                } else {
+                    path.setAttribute("fill", item.color);
+                    path.setAttribute("stroke", "#fff");
+                    path.setAttribute("stroke-width", "2");
+                }
+                svg.appendChild(path);
+                return svg;
+            }
+
+            function startGiftRound() {
+                gameArea.innerHTML = '';
+                const targetItem = getRandomItem();
+                giftCurrentTargetId = targetItem.id;
+
+                targetDisplay.innerHTML = '';
+                targetDisplay.appendChild(createSVG(targetItem, false));
+
+                const numItems = Math.min(5 + giftRound, 40);
+                let roundItems = [targetItem];
+                for (let i = 0; i < numItems - 1; i++) {
+                    roundItems.push(getRandomItem());
+                }
+                roundItems.sort(() => Math.random() - 0.5);
+
+                roundItems.forEach(item => {
+                    const el = document.createElement('div');
+                    el.classList.add('item');
+                    el.dataset.id = item.id;
+                    const wrapPattern = WRAPS[Math.floor(Math.random() * WRAPS.length)];
+                    const svgString = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'><path d='${item.path}'/></svg>`;
+                    const encodedSVG = "data:image/svg+xml;base64," + btoa(svgString);
+
+                    el.style.width = '60px';
+                    el.style.height = '100px';
+                    el.style.webkitMaskImage = `url("${encodedSVG}")`;
+                    el.style.maskImage = `url("${encodedSVG}")`;
+                    el.style.webkitMaskRepeat = 'no-repeat';
+                    el.style.maskRepeat = 'no-repeat';
+                    el.style.webkitMaskSize = 'contain';
+                    el.style.maskSize = 'contain';
+                    el.style.background = wrapPattern;
+
+                    const x = Math.random() * 90; 
+                    const y = Math.random() * 80;
+                    el.style.left = x + '%';
+                    el.style.top = y + '%';
+                    el.style.zIndex = Math.floor(Math.random() * 100);
+                    const rot = (Math.random() * 60) - 30;
+                    el.style.transform = `rotate(${rot}deg)`;
+
+                    el.addEventListener('click', (e) => handleGiftItemClick(e, item.id, el));
+                    gameArea.appendChild(el);
+                });
+            }
+
+            function handleGiftItemClick(e, id, element) {
+                if (giftIsGameOver) return;
+                e.stopPropagation();
+
+                if (id === giftCurrentTargetId) {
+                    showGiftFeedback(e.clientX, e.clientY + window.scrollY, "+5s", "#2ecc71");
+                    giftScore++;
+                    giftTimeLeft += 5; 
+                    giftRound++;
+                    timerEl.innerText = giftTimeLeft;
+                    scoreEl.innerText = giftScore;
+                    
+                    element.style.transform = "scale(1.5) rotate(0deg)";
+                    element.style.background = "white"; 
+                    
+                    setTimeout(startGiftRound, 300); 
+                } else {
+                    showGiftFeedback(e.clientX, e.clientY + window.scrollY, "-3s", "#e74c3c");
+                    giftTimeLeft -= 3;
+                    timerEl.innerText = giftTimeLeft;
+                    
+                    element.style.transform += " translateX(10px)";
+                    setTimeout(() => {
+                        element.style.transform = element.style.transform.replace(" translateX(10px)", "");
+                    }, 100);
+
+                    if (giftTimeLeft <= 0) endGiftGame();
+                }
+            }
+
+            function showGiftFeedback(x, y, text, color) {
+                const fb = document.createElement('div');
+                fb.classList.add('gift-feedback');
+                fb.innerText = text;
+                fb.style.color = color;
+                
+                // Adjust position relative to the section/viewport
+                const rect = gameArea.getBoundingClientRect();
+                fb.style.left = (x) + 'px';
+                fb.style.top = (y) + 'px'; // window.scrollY added in click handler
+                
+                document.body.appendChild(fb);
+                setTimeout(() => fb.remove(), 1000);
+            }
+        }
+    </script>
+
+    <script type="module">
+        // --- COIN TOSS SCRIPT ---
+        import * as THREE from "https://esm.sh/three@0.160.0";
+        import * as CANNON from "https://esm.sh/cannon-es@0.20.0";
+
+        let scene, camera, renderer, world;
+        let coinObjects = []; 
+        let isHolding = false;
+        let needsResultCheck = false;
+        let mouse = new THREE.Vector2();
+        let raycaster = new THREE.Raycaster();
+
+        const FRUSTUM_SIZE = 20; 
+        let dragPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -15); 
+
+        const uiResult = document.getElementById("result-board");
+        const uiMain = document.getElementById("main-result");
+        const uiDetail = document.getElementById("detail-result");
+        const container = document.getElementById("game-container");
+
+        const palette = ["#EAA14D", "#F2C94C", "#E05A47", "#4D9BEA", "#5FB376"];
+        const commonColors = { text: "#FFFFFF", outline: "#725349", shadow: "#F3BD2E" };
+
+        init();
+        animate();
+
+        function init() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color("#F6F3EB");
+
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            const aspect = width / height;
+
+            camera = new THREE.OrthographicCamera(
+                (FRUSTUM_SIZE * aspect) / -2, (FRUSTUM_SIZE * aspect) / 2,
+                FRUSTUM_SIZE / 2, FRUSTUM_SIZE / -2,
+                1, 1000
+            );
+
+            // Slightly adjusted camera to frame the middle better
+            camera.position.set(40, 50, 40); 
+            camera.lookAt(0, 0, 0); 
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            dirLight.position.set(10, 20, 10);
+            scene.add(dirLight);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(width, height);
+            renderer.domElement.style.touchAction = 'none'; 
+            renderer.shadowMap.enabled = true;
+            container.appendChild(renderer.domElement);
+
+            world = new CANNON.World();
+            world.gravity.set(0, -50, 0); 
+            world.broadphase = new CANNON.NaiveBroadphase();
+            world.solver.iterations = 20;
+            world.allowSleep = true; 
+
+            const wallMat = new CANNON.Material();
+            const coinMat = new CANNON.Material();
+
+            world.addContactMaterial(new CANNON.ContactMaterial(wallMat, coinMat, { friction: 0.4, restitution: 0.5 }));
+            world.addContactMaterial(new CANNON.ContactMaterial(coinMat, coinMat, { friction: 0.4, restitution: 0.6 }));
+
+            createPhysicsWalls(wallMat);
+            updateCoinCount(1);
+
+            window.addEventListener("resize", onWindowResize);
+            container.addEventListener("mousedown", onInputStart);
+            container.addEventListener("mousemove", onInputMove);
+            window.addEventListener("mouseup", onInputEnd);
+            
+            container.addEventListener("touchstart", onInputStart, { passive: false });
+            container.addEventListener("touchmove", onInputMove, { passive: false });
+            window.addEventListener("touchend", onInputEnd);
+
+            document.getElementById("coinCount").addEventListener("change", (e) => {
+                updateCoinCount(parseInt(e.target.value));
+            });
+        }
+
+        function updateMousePosition(e) {
+            const rect = renderer.domElement.getBoundingClientRect();
+            let x, y;
+            if (e.changedTouches) {
+                x = e.changedTouches[0].clientX;
+                y = e.changedTouches[0].clientY;
+            } else {
+                x = e.clientX;
+                y = e.clientY;
+            }
+            mouse.x = ((x - rect.left) / rect.width) * 2 - 1;
+            mouse.y = -((y - rect.top) / rect.height) * 2 + 1;
+        }
+
+        function onInputStart(e) {
+            if (e.target.closest(".top-bar")) return; 
+            isHolding = true;
+            needsResultCheck = false;
+            uiResult.classList.remove("show");
+            updateMousePosition(e);
+
+            coinObjects.forEach(obj => {
+                obj.body.wakeUp(); 
+                obj.spinOffset = Math.random() * 100; 
+                obj.isReturning = false;
+            });
+        }
+
+        function onInputMove(e) {
+            if (!isHolding) return;
+            if(e.cancelable) e.preventDefault();
+            updateMousePosition(e);
+        }
+
+        function onInputEnd(e) {
+            if (!isHolding) return;
+            isHolding = false;
+            releaseCoins();
+        }
+
+        function createPhysicsWalls(material) {
+            const floorBody = new CANNON.Body({ mass: 0, material: material });
+            floorBody.addShape(new CANNON.Plane());
+            floorBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2);
+            world.addBody(floorBody);
+            
+            const wallDistance = 12;
+            const createWall = (x, z, rot) => {
+                const body = new CANNON.Body({ mass: 0, material: material });
+                body.addShape(new CANNON.Plane());
+                body.position.set(x, 0, z);
+                body.quaternion.setFromAxisAngle(new CANNON.Vec3(0, 1, 0), rot);
+                world.addBody(body);
+            };
+            createWall(wallDistance, 0, -Math.PI / 2); createWall(-wallDistance, 0, Math.PI / 2);
+            createWall(0, -wallDistance, 0); createWall(0, wallDistance, Math.PI);
+        }
+
+        function createCoinTexture(text, colorHex) {
+            const size = 512;
+            const canvas = document.createElement("canvas");
+            canvas.width = size; canvas.height = size;
+            const ctx = canvas.getContext("2d");
+            ctx.beginPath(); ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+            ctx.fillStyle = colorHex; ctx.fill();
+            ctx.beginPath(); ctx.arc(size/2, size/2, size/2 - 20, 0, Math.PI * 2);
+            ctx.lineWidth = 15; ctx.strokeStyle = "rgba(255, 255, 255, 0.3)"; ctx.stroke();
+            ctx.fillStyle = commonColors.text; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+            ctx.font = "bold 200px 'Bungee', sans-serif"; 
+            ctx.save(); ctx.shadowColor = "rgba(0,0,0,0.2)"; ctx.shadowBlur = 0; ctx.shadowOffsetX = 5; ctx.shadowOffsetY = 5;
+            ctx.fillText(text, size/2, size/2 + 15); ctx.restore();
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        function updateCoinCount(count) {
+            coinObjects.forEach((obj) => {
+                scene.remove(obj.mesh); scene.remove(obj.outline); scene.remove(obj.shadow); world.removeBody(obj.body);
+                if (obj.mesh.material) { obj.mesh.material.forEach(m => { if (m.map) m.map.dispose(); m.dispose(); }); }
+            });
+            coinObjects = [];
+            uiResult.classList.remove("show");
+
+            const radius = 2.2; const thickness = 0.5; const segments = 32;
+            const geometry = new THREE.CylinderGeometry(radius, radius, thickness, segments);
+            const outlineGeo = new THREE.CylinderGeometry(radius * 1.05, radius * 1.05, thickness * 1.05, segments);
+            const shadowGeo = new THREE.CircleGeometry(radius, 32);
+            const shape = new CANNON.Cylinder(radius, radius, thickness, segments);
+            const shapeQ = new CANNON.Quaternion(); shapeQ.setFromAxisAngle(new CANNON.Vec3(1,0,0), Math.PI/2);
+            const outlineMat = new THREE.MeshBasicMaterial({ color: commonColors.outline, side: THREE.BackSide });
+            const shadowMat = new THREE.MeshBasicMaterial({ color: commonColors.shadow, transparent: true, opacity: 0.2 });
+
+            for (let i = 0; i < count; i++) {
+                const randomColor = palette[Math.floor(Math.random() * palette.length)];
+                const sideMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(randomColor).multiplyScalar(0.8) });
+                const topMat = new THREE.MeshBasicMaterial({ map: createCoinTexture("YES", randomColor) });
+                const bottomMat = new THREE.MeshBasicMaterial({ map: createCoinTexture("NO", randomColor) });
+                const mesh = new THREE.Mesh(geometry, [sideMat, topMat, bottomMat]);
+                mesh.castShadow = true; mesh.receiveShadow = true; scene.add(mesh);
+                const outline = new THREE.Mesh(outlineGeo, outlineMat); scene.add(outline);
+                const shadow = new THREE.Mesh(shadowGeo, shadowMat); shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.01; scene.add(shadow);
+                const startX = (i - (count - 1) / 2) * 3.0; 
+                const body = new CANNON.Body({ mass: 5, material: world.contactmaterials[1].materials[1], position: new CANNON.Vec3(startX, 2 + Math.random(), 0), sleepSpeedLimit: 0.5, sleepTimeLimit: 0.5 });
+                body.addShape(shape, new CANNON.Vec3(0,0,0), shapeQ); body.quaternion.setFromEuler(Math.PI/2, 0, 0); 
+                world.addBody(body);
+                coinObjects.push({ mesh, outline, shadow, body, spinOffset: 0, isReturning: false });
+            }
+        }
+
+        function releaseCoins() {
+            const SAFE_LIMIT = 9; 
+            coinObjects.forEach((obj) => {
+                const { body } = obj;
+                const isOutside = Math.abs(body.position.x) > SAFE_LIMIT || Math.abs(body.position.z) > SAFE_LIMIT;
+                if (isOutside) { obj.isReturning = true; } else { body.wakeUp(); applyTossForce(body); }
+            });
+            setTimeout(() => { needsResultCheck = true; }, 500);
+        }
+
+        function applyTossForce(body) {
+            const xDist = -body.position.x; const zDist = -body.position.z;
+            body.velocity.set(xDist * 1.5 + (Math.random() - 0.5) * 5, 10 + Math.random() * 10, zDist * 1.5 + (Math.random() - 0.5) * 5);
+            body.angularVelocity.set((Math.random() - 0.5) * 50, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 50);
+        }
+
+        function calculateResult() {
+            let yesCount = 0; let noCount = 0; let standingCount = 0; let details = [];
+            coinObjects.forEach(({ mesh }) => {
+                const localUp = new THREE.Vector3(0, 1, 0); localUp.applyQuaternion(mesh.quaternion);
+                if (localUp.y > 0.5) { yesCount++; details.push("YES"); } else if (localUp.y < -0.5) { noCount++; details.push("NO"); } else { standingCount++; details.push("?"); }
+            });
+            if (coinObjects.length === 1) { uiMain.innerText = details[0]; uiDetail.innerText = ""; } else {
+                let text = []; if(yesCount > 0) text.push(`${yesCount} YES`); if(noCount > 0) text.push(`${noCount} NO`); if(standingCount > 0) text.push(`${standingCount} ?`);
+                uiMain.innerText = text.join(" / "); uiDetail.innerText = `(${details.join(", ")})`;
+            }
+            uiResult.classList.add("show"); needsResultCheck = false;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (isHolding) {
+                raycaster.setFromCamera(mouse, camera);
+                const targetPoint = new THREE.Vector3();
+                const intersect = raycaster.ray.intersectPlane(dragPlane, targetPoint);
+                if (intersect) {
+                    const time = performance.now() * 0.01;
+                    coinObjects.forEach((obj, i) => {
+                        const offsetX = Math.sin(time + i) * 1.0; const offsetZ = Math.cos(time + i * 2) * 1.0;
+                        obj.body.position.x += (targetPoint.x + offsetX - obj.body.position.x) * 0.25;
+                        obj.body.position.y += (15 - obj.body.position.y) * 0.25; 
+                        obj.body.position.z += (targetPoint.z + offsetZ - obj.body.position.z) * 0.25;
+                        obj.body.quaternion.setFromEuler(Math.PI / 2, time * 5 + obj.spinOffset, 0);
+                        obj.body.velocity.set(0, 0, 0); obj.body.angularVelocity.set(0, 0, 0); obj.isReturning = false;
+                    });
+                }
+            } else {
+                const time = performance.now() * 0.01;
+                coinObjects.forEach((obj) => {
+                    if (obj.isReturning) {
+                        obj.body.position.x += (0 - obj.body.position.x) * 0.15; obj.body.position.z += (0 - obj.body.position.z) * 0.15; obj.body.position.y += (12 - obj.body.position.y) * 0.1;
+                        obj.body.quaternion.setFromEuler(0, time * 10, 0);
+                        obj.body.velocity.set(0, 0, 0); obj.body.angularVelocity.set(0, 0, 0);
+                        if (Math.abs(obj.body.position.x) < 8 && Math.abs(obj.body.position.z) < 8) { obj.isReturning = false; obj.body.wakeUp(); applyTossForce(obj.body); }
+                    }
+                });
+                world.step(1 / 60);
+            }
+            for (let i = 0; i < coinObjects.length; i++) {
+                const { mesh, outline, shadow, body } = coinObjects[i];
+                mesh.position.copy(body.position); mesh.quaternion.copy(body.quaternion); mesh.rotateX(Math.PI / 2); 
+                outline.position.copy(mesh.position); outline.quaternion.copy(mesh.quaternion);
+                shadow.position.x = body.position.x; shadow.position.z = body.position.z;
+                const height = Math.max(0, body.position.y - 0.2); const scale = Math.max(0.5, 1 - height * 0.04); const opacity = Math.max(0, 0.3 - height * 0.01);
+                shadow.scale.setScalar(scale); shadow.material.opacity = opacity;
+            }
+            if (needsResultCheck) {
+                let allStopped = true;
+                for (let o of coinObjects) {
+                    if (o.isReturning) { allStopped = false; break; }
+                    if (o.body.velocity.lengthSquared() > 0.05 || o.body.angularVelocity.lengthSquared() > 0.05) { allStopped = false; break; }
+                }
+                if (allStopped) calculateResult();
+            }
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            const aspect = width / height;
+            camera.left = (-FRUSTUM_SIZE * aspect) / 2; camera.right = (FRUSTUM_SIZE * aspect) / 2;
+            camera.top = FRUSTUM_SIZE / 2; camera.bottom = -FRUSTUM_SIZE / 2;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        }
+    </script>
+</body>
+</html>
